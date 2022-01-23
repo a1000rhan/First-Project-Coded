@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
+import SignInModal from "./SignInModal";
+import SignUpModal from "./SignUpModal";
 
 const NavBar = () => {
   return (
@@ -36,12 +38,8 @@ const NavBar = () => {
             </Link>
           </ul>
           <div className="sign">
-            <button type="button" class="button">
-              Sign In
-            </button>
-            <button type="button" class="button">
-              Sign Out
-            </button>
+            <SignInModal />
+            <SignUpModal />
           </div>
         </div>
       </nav>
