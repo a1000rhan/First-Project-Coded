@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import authstore from "./AuthStore";
+import authstore from "../store/AuthStore";
 
 function SignInModal() {
   const [isOpen, setIsOpen] = useState(false);
