@@ -36,7 +36,12 @@ const NavBar = () => {
             </Link>
           </ul>
           <div className="sign">
-            <button>Sign In</button>
+            <button type="button" class="button">
+              Sign In
+            </button>
+            <button type="button" class="button">
+              Sign Out
+            </button>
           </div>
         </div>
       </nav>
