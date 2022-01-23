@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import authstore from "./AuthStore";
 
 function SignInModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +12,12 @@ function SignInModal() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); //complete the code
+    event.preventDefault();
+    authstore.signIn(user);
   };
 }
 return (
-  <>
+  <div className="container">
     <form onSubmit={hundleSubmit(onSubmit)}>
       <label>userName</label>
       <input type="text" placeholder="userName" onChange={hundleChange} />
@@ -27,5 +29,8 @@ return (
         submit
       </Button>
     </form>
-  </>
+  </div>
 );
+
+
+export

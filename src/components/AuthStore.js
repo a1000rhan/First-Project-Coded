@@ -18,3 +18,5 @@ signUp = async (user) => {
     this.setUser(resp.data);
   } catch (error) {}
 };
+const authstore = new AuthStore();
+export default authstore;
