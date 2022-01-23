@@ -32,5 +32,4 @@ return (
   </div>
 );
 
-
-export
+export default SignInModal();
