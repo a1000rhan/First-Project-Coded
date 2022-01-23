@@ -1,9 +1,11 @@
 import React from 'react';
 
 function Listitem({list}) {
-  return <div>
+  return <div className='container'>
+      <div>
       <h1>{list.title}</h1>
-      <img src= {list.image} />
+      <img className='image' src= {list.image} />
+      </div>
   </div>;
 }
 
