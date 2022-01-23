@@ -5,7 +5,7 @@ import logo from "../logo.png";
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark navbar">
         <Link to="/">
           <img width="50px" src={logo} alt="logo" />
         </Link>
@@ -29,17 +29,20 @@ const NavBar = () => {
                 </a>
               </li>
             </Link>
-            <Link to="/form">
-              <li className="nav-item">
-                <a className="nav-link">Form</a>
-              </li>
-            </Link>
             <Link to="/list">
               <li className="nav-item">
                 <a className="nav-link">List</a>
               </li>
             </Link>
           </ul>
+          <div className="sign">
+            <button type="button" class="button">
+              Sign In
+            </button>
+            <button type="button" class="button">
+              Sign Out
+            </button>
+          </div>
         </div>
       </nav>
     </div>
