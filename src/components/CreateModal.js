@@ -36,7 +36,7 @@ const CreateModal = () => {
 
   return (
     <div className="center-button">
-<Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
+      <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Create New Jam3eia</Modal.Title>
@@ -50,12 +50,12 @@ const CreateModal = () => {
               <Form.Control name="image" type="text" onChange={handleChange} />
             </div>
             <div>
-            <Form.Label>Amount</Form.Label>
-            <Form.Control name="amount" type="text" onChange={handleChange} />
+              <Form.Label>Amount</Form.Label>
+              <Form.Control name="amount" type="text" onChange={handleChange} />
             </div>
             <div>
-            <Form.Label>Limit</Form.Label>
-            <Form.Control name="limit" type="text" onChange={handleChange} />
+              <Form.Label>Limit</Form.Label>
+              <Form.Control name="limit" type="text" onChange={handleChange} />
             </div>
             <div>
             <Form.Label>Start Date</Form.Label>
