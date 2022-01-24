@@ -7,7 +7,7 @@ const schema = yup.object().shape({
     .string()
     .min(8)
     .required(/[a-zA-Z]/, "only character"),
-  password: yup.string().max(12).min(8).matches("").required(),
+  password: yup.string().max(20).min(8).matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/ , "Minimum eight characters, at least one letter, one number and one special character").required("This field is required"),
   email: yup
     .string()
     .min(20)

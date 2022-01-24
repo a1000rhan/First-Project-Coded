@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
+import api from "./api";
 
 
 class DataStore {
@@ -10,7 +11,7 @@ class DataStore {
     }
     fetchTasks = async () =>{
         try{
-            const response = await axios.get("https://coded-miniproject-jam3ya-be.herokuapp.com/jam3ya");
+            const response = await api.get("/jam3ya");
             this.tasks = response.data
             console.log(this.tasks);
         }
@@ -21,8 +22,8 @@ class DataStore {
 
     createTask = async (newTask) => {
         try{
-            const response =  await axios.post(
-                "https://coded-miniproject-jam3ya-be.herokuapp.com/jam3ya" , newTask
+            const response =  await api.post(
+                "/jam3ya" , newTask
                 );
             this.tasks=[...this.tasks,newTask]
         }
@@ -33,7 +34,7 @@ class DataStore {
 
     deleteTask = async (id) => {
         try{
-        const response = await axios.delete (`https://coded-miniproject-jam3ya-be.herokuapp.com/jam3ya/${id}`);
+        const response = await api.delete (`/jam3ya/${id}`);
         let tempTasks = this.tasks.filter((task) => task.id !== id);
         this.tasks = tempTasks;
     }
