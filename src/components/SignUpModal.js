@@ -1,9 +1,10 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
+import authstore from "../store/AuthStore";
 
 const SignUpModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ username: "", email: "", password: "" });
 
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
@@ -13,34 +14,38 @@ const SignUpModal = () => {
     event.preventDefault();
 
     // call a function to sign up
+    authstore.signUp(user);
 
     setIsOpen(false);
   };
   return (
-    <div>
-      <Button className="delete" onClick={() => setIsOpen(true)}>
-        User
-      </Button>
+    <div className="sign-item">
+      <Button onClick={() => setIsOpen(true)}>Sign Up</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <label>User Name</label>
-            <input name="username" type="text" onChange={handleChange} />
+            <Form.Label>User Name </Form.Label>
+            <Form.Control name="username" type="text" onChange={handleChange} />
             <div>
-              <label>Password</label>
-              <input name="password" type="password" onChange={handleChange} />
+              <Form.Label>Eamil </Form.Label>
+              <Form.Control name="email" type="email" onChange={handleChange} />
+            </div>
+            <div>
+              <Form.Label>Password </Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                onChange={handleChange}
+              />
             </div>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" value="signUp" onClick={handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Sign up
-          </Button>
-          <Button variant="primary" value="signIn" onClick={handleSubmit}>
-            Sign in
           </Button>
         </Modal.Footer>
       </Modal>

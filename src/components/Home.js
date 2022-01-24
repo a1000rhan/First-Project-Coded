@@ -1,16 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
       <h1 className="title-home">Ga6eaTna</h1>
-
-      <div className="container-home">
-        <img
-          src="https://i0.wp.com/www.inewsguyana.com/wp-content/uploads/2019/10/how_to_invest.jpg?w=750&ssl=1"
-          className="home-img"
-        />
-      </div>
+      <Link to="/aboutus">
+        <div className="container-home">
+          <img
+            src="https://images-ext-2.discordapp.net/external/mZpLjEp6LxdXGzJCFpbhc36bVCB6ZxnTL85H9S4rkmA/https/www.clipartkey.com/mpngs/m/4-40753_cartoon-money-clipart-money-bag-clipart-png.png"
+            className="home-img"
+          />
+        </div>
+      </Link>
     </div>
   );
 };

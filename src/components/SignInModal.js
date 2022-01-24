@@ -14,35 +14,39 @@ function SignInModal() {
     event.preventDefault();
 
     // call a function to sign up
-
-    // event.target.value === "signUp"
-    // ? authstore.signUp(user)
-    // : authstore.signIn(user);
+    authstore.signIn(user);
 
     setIsOpen(false);
   };
 
   return (
-    <div className="container">
-      <Button className="delete" onClick={() => setIsOpen(true)}>
-        Sign In
-      </Button>
+    <div className="sign-item">
+      <Button onClick={() => setIsOpen(true)}>Sign In</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Sign up</Modal.Title>
+          <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <label>User Name</label>
-            <input name="username" type="text" onChange={handleChange} />
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              className="mb-3"
+              name="username"
+              type="text"
+              onChange={handleChange}
+            />
             <div>
-              <label>Password</label>
-              <input name="password" type="password" onChange={handleChange} />
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                onChange={handleChange}
+              />
             </div>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" value="signIn" onClick={handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Sign in
           </Button>
         </Modal.Footer>
