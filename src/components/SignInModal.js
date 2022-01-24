@@ -27,12 +27,21 @@ function SignInModal() {
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="form" onSubmit={handleSubmit}>
-            <label>User Name</label>
-            <input name="username" type="text" onChange={handleChange} />
+          <Form onSubmit={handleSubmit}>
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              className="mb-3"
+              name="username"
+              type="text"
+              onChange={handleChange}
+            />
             <div>
-              <label>Password</label>
-              <input name="password" type="password" onChange={handleChange} />
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                onChange={handleChange}
+              />
             </div>
           </Form>
         </Modal.Body>

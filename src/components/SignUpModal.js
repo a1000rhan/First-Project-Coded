@@ -26,16 +26,20 @@ const SignUpModal = () => {
           <Modal.Title>Sign up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form className="form" onSubmit={handleSubmit}>
-            <label>User Name </label>
-            <input name="username" type="text" onChange={handleChange} />
+          <Form onSubmit={handleSubmit}>
+            <Form.Label>User Name </Form.Label>
+            <Form.Control name="username" type="text" onChange={handleChange} />
             <div>
-              <label>Eamil </label>
-              <input name="email" type="email" onChange={handleChange} />
+              <Form.Label>Eamil </Form.Label>
+              <Form.Control name="email" type="email" onChange={handleChange} />
             </div>
             <div>
-              <label>Password </label>
-              <input name="password" type="password" onChange={handleChange} />
+              <Form.Label>Password </Form.Label>
+              <Form.Control
+                name="password"
+                type="password"
+                onChange={handleChange}
+              />
             </div>
           </Form>
         </Modal.Body>
