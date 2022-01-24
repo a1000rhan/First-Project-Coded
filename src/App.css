@@ -22,21 +22,21 @@
 }
 .home-img {
   width: 600px;
-  height: 400px;
-  background-color: black;
-  border: 5px solid white;
-  object-fit: contain;
+  height: 600px;
+  border: 5px solid black;
+  object-fit: cover;
 }
 
 .container-home {
-  margin-top: 50px;
+  margin-top: 60px;
   align-items: center;
+
   width: 100vw;
-  height: 400px;
+  height: 600px;
   display: flex;
   justify-content: center;
 }
 .title-home {
-  margin: 40px;
+  margin: 50px;
   text-align: center;
 }
