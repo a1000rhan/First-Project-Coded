@@ -32,3 +32,24 @@
   margin: 40px;
   text-align: center;
 }
+
+.align-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+}
+
+.card-list {
+  width: 400px;
+  margin: 10px;
+}
+
+.image-list {
+  object-fit: fill;
+}
+
+.image-div {
+  width: 600px;
+  height: 400px;
+}

@@ -12,12 +12,13 @@ class AuthStore {
       this.setUser(resp.data);
     } catch (error) {}
   };
-}
+s
 signUp = async (user) => {
   try {
     const resp = await api.post("/signup", user);
     this.setUser(resp.data);
   } catch (error) {}
 };
+}
 const authstore = new AuthStore();
 export default authstore;
