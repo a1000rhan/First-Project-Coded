@@ -20,14 +20,14 @@ function SignInModal() {
   };
 
   return (
-    <div className="btn-sign">
+    <div className="sign-item">
       <Button onClick={() => setIsOpen(true)}>Sign In</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form className="form" onSubmit={handleSubmit}>
             <label>User Name</label>
             <input name="username" type="text" onChange={handleChange} />
             <div>

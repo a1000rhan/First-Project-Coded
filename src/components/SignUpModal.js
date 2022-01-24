@@ -19,22 +19,22 @@ const SignUpModal = () => {
     setIsOpen(false);
   };
   return (
-    <div className="btn-sign">
+    <div className="sign-item">
       <Button onClick={() => setIsOpen(true)}>Sign Up</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <label>User Name</label>
+          <Form className="form" onSubmit={handleSubmit}>
+            <label>User Name </label>
             <input name="username" type="text" onChange={handleChange} />
             <div>
-              <label>Eamil</label>
+              <label>Eamil </label>
               <input name="email" type="email" onChange={handleChange} />
             </div>
             <div>
-              <label>Password</label>
+              <label>Password </label>
               <input name="password" type="password" onChange={handleChange} />
             </div>
           </Form>

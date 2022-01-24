@@ -1,12 +1,14 @@
 .sign {
   display: flex;
-
   justify-content: end;
   width: 100%;
   margin: 5px;
 }
-.btn-sign {
+.sign-item {
   margin: 5px;
+}
+.form {
+  display: table;
 }
 
 .navbar {
