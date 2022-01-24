@@ -19,10 +19,8 @@ const SignUpModal = () => {
     setIsOpen(false);
   };
   return (
-    <div>
-      <Button className="delete" onClick={() => setIsOpen(true)}>
-        Sign Up
-      </Button>
+    <div className="btn-sign">
+      <Button onClick={() => setIsOpen(true)}>Sign Up</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign up</Modal.Title>
@@ -42,7 +40,7 @@ const SignUpModal = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" value="signUp" onClick={handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Sign up
           </Button>
         </Modal.Footer>

@@ -20,10 +20,8 @@ function SignInModal() {
   };
 
   return (
-    <div className="container">
-      <Button className="delete" onClick={() => setIsOpen(true)}>
-        Sign In
-      </Button>
+    <div className="btn-sign">
+      <Button onClick={() => setIsOpen(true)}>Sign In</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title>
@@ -39,7 +37,7 @@ function SignInModal() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" value="signIn" onClick={handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Sign in
           </Button>
         </Modal.Footer>
