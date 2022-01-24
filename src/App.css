@@ -40,3 +40,10 @@
   margin: 50px;
   text-align: center;
 }
+
+.center-button {
+  display: flex;
+  justify-content: center;
+
+  text-align: center;
+}
