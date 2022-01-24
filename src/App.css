@@ -1,5 +1,7 @@
 .sign {
+  display: flex;
   text-align: end;
+  justify-content: end;
   width: 100%;
 }
 

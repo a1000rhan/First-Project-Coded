@@ -14,10 +14,7 @@ function SignInModal() {
     event.preventDefault();
 
     // call a function to sign up
-
-    // event.target.value === "signUp"
-    // ? authstore.signUp(user)
-    // : authstore.signIn(user);
+    authstore.signIn(user);
 
     setIsOpen(false);
   };

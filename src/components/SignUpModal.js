@@ -1,9 +1,10 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
+import authstore from "../store/AuthStore";
 
 const SignUpModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ username: "", email: "", password: "" });
 
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
@@ -13,13 +14,14 @@ const SignUpModal = () => {
     event.preventDefault();
 
     // call a function to sign up
+    authstore.signUp(user);
 
     setIsOpen(false);
   };
   return (
     <div>
       <Button className="delete" onClick={() => setIsOpen(true)}>
-        User
+        Sign Up
       </Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
@@ -30,6 +32,10 @@ const SignUpModal = () => {
             <label>User Name</label>
             <input name="username" type="text" onChange={handleChange} />
             <div>
+              <label>Eamil</label>
+              <input name="email" type="email" onChange={handleChange} />
+            </div>
+            <div>
               <label>Password</label>
               <input name="password" type="password" onChange={handleChange} />
             </div>
@@ -38,9 +44,6 @@ const SignUpModal = () => {
         <Modal.Footer>
           <Button variant="primary" value="signUp" onClick={handleSubmit}>
             Sign up
-          </Button>
-          <Button variant="primary" value="signIn" onClick={handleSubmit}>
-            Sign in
           </Button>
         </Modal.Footer>
       </Modal>
