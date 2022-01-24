@@ -40,3 +40,47 @@
   margin: 40px;
   text-align: center;
 }
+
+.align-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  text-align: start;
+}
+.conatiner-list {
+  margin: 20px;
+}
+
+.card-list {
+  margin: 10px;
+  width: 320px;
+  height: 255px;
+  border-radius: 10px;
+  align-content: stretch;
+  border: 2px solid #1a374d;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card-list:hover {
+  width: 325px;
+  height: 260px;
+}
+.image-list {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+}
+
+.theimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title-list {
+  height: 45px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+}

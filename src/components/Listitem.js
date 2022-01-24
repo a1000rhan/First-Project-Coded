@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
 
-function Listitem({list}) {
-  return <div className='container'>
-      <div>
-      <h1>{list.title}</h1>
-      <img className='image' src= {list.image} />
+function Listitem({ list }) {
+  return (
+    <div className="conatiner-list">
+      <div className="card-list">
+        <div className="image-list">
+          <img className="theimage" src={list.image} />
+        </div>
+        <p className="title-list">{list.title}</p>
       </div>
-  </div>;
+    </div>
+  );
 }
 
 export default Listitem;
