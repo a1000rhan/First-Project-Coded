@@ -1,8 +1,14 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import dataStore from "../store/dataStore";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const CreateModal = () => {
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  
   const [isOpen, setIsOpen] = useState(false);
   const [money, setMoney] = useState({
     title: "",
@@ -14,12 +20,17 @@ const CreateModal = () => {
   });
 
   const handleChange = (event) => {
-    setMoney({ ...money, [event.target.name]: event.target.value });
+   
+    setMoney({...money, [event.target.name]: event.target.value });
+   
+
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dataStore.createTask(money);
+    setMoney({startDate: startDate,
+    endDate: endDate,})
     setIsOpen(false);
   };
 
@@ -33,7 +44,7 @@ const CreateModal = () => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Label>Title</Form.Label>
-            <Form.Control name="username" type="text" onChange={handleChange} />
+            <Form.Control name="title" type="text" onChange={handleChange} />
             <div>
               <Form.Label>Image</Form.Label>
               <Form.Control name="image" type="text" onChange={handleChange} />
@@ -48,11 +59,26 @@ const CreateModal = () => {
             </div>
             <div>
             <Form.Label>Start Date</Form.Label>
-            <Form.Control name="startDate" type="text" onChange={handleChange} />
+            <DatePicker
+            placeholderText="Select Start Date"
+            showTimeSelect
+            dateFormat="yyyy/mm/dd"
+            selected={startDate}
+          
+            onChange={date=>setStartDate(date)}
+            />
             </div>
             <div>
             <Form.Label>End Date</Form.Label>
-            <Form.Control name="endDate" type="email" onChange={handleChange} />
+            {/* <Form.Control name="endDate" type="text" onChange={handleChange} /> */}
+            <DatePicker
+             placeholderText="Select End Date"
+             showTimeSelect
+             dateFormat="yyyy/mm/dd"
+             selected={endDate}
+           
+             onChange={date=>setEndDate(date)}
+              />
             </div>
           </Form>
         </Modal.Body>
