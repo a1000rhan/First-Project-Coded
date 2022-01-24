@@ -20,12 +20,13 @@ const CreateModal = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dataStore.createTask(money);
+    console.log(money);
     setIsOpen(false);
   };
 
   return (
     <div className="center-button">
-<Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
+      <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Create New Jam3eia</Modal.Title>
@@ -33,26 +34,34 @@ const CreateModal = () => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Label>Title</Form.Label>
-            <Form.Control name="username" type="text" onChange={handleChange} />
+            <Form.Control name="title" type="text" onChange={handleChange} />
             <div>
               <Form.Label>Image</Form.Label>
               <Form.Control name="image" type="text" onChange={handleChange} />
             </div>
             <div>
-            <Form.Label>Amount</Form.Label>
-            <Form.Control name="amount" type="text" onChange={handleChange} />
+              <Form.Label>Amount</Form.Label>
+              <Form.Control name="amount" type="text" onChange={handleChange} />
             </div>
             <div>
-            <Form.Label>Limit</Form.Label>
-            <Form.Control name="limit" type="text" onChange={handleChange} />
+              <Form.Label>Limit</Form.Label>
+              <Form.Control name="limit" type="text" onChange={handleChange} />
             </div>
             <div>
-            <Form.Label>Start Date</Form.Label>
-            <Form.Control name="startDate" type="text" onChange={handleChange} />
+              <Form.Label>Start Date</Form.Label>
+              <Form.Control
+                name="startDate"
+                type="text"
+                onChange={handleChange}
+              />
             </div>
             <div>
-            <Form.Label>End Date</Form.Label>
-            <Form.Control name="endDate" type="email" onChange={handleChange} />
+              <Form.Label>End Date</Form.Label>
+              <Form.Control
+                name="endDate"
+                type="email"
+                onChange={handleChange}
+              />
             </div>
           </Form>
         </Modal.Body>
