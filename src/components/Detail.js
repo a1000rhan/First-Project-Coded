@@ -11,7 +11,7 @@ const Detail = () => {
   const jam3ya = dataStore.tasks.find((elem) => elem.slug === slug);
   const jmembers = jam3ya.users.map((juser) => <Jam3yaUsers juser = {juser} />)
 
-
+  
   return (
     <div>
       <Link to="/list">
