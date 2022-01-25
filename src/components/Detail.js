@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Detail = () => {
   const { slug } = useParams();
   const jam3ya = dataStore.tasks.find((elem) => elem.slug === slug);
+
   console.log(slug);
   return (
     <div>
@@ -45,6 +46,11 @@ const Detail = () => {
               <tr>
                 <th>End Date:</th>
                 <td>{jam3ya.endDate}</td>
+              </tr>
+
+              <tr>
+                <th>Members</th>
+                <td>{}</td>
               </tr>
             </table>
           </Card>
