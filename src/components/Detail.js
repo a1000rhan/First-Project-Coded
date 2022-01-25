@@ -4,7 +4,7 @@ import dataStore from "../store/dataStore";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import authstore from "../store/AuthStore";
-import { set } from "mobx";
+import { observer } from "mobx-react";
 
 const Detail = () => {
   const { slug } = useParams();
@@ -12,9 +12,10 @@ const Detail = () => {
   const [members, setMembers] = useState();
 
   const handleJoin = () => {
+    console.log(jam3ya.limit);
+    console.log(jam3ya.users.length);
     setMembers(authstore.user);
-    dataStore.joinJam3ya(members);
-    console.log(members);
+    dataStore.joinJam3ya(members, jam3ya._id);
   };
   return (
     <div>
@@ -72,4 +73,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default observer(Detail);

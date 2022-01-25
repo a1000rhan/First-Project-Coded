@@ -51,12 +51,10 @@ class DataStore {
       alert("cannot update");
     }
   };
-  joinJam3ya = async (newMember) => {
+  joinJam3ya = async (newMember, id) => {
+    console.log(id);
     try {
-      const response = await api.post(
-        `jam3ya/join/${newMember._id}`,
-        newMember
-      );
+      const response = await api.post(`jam3ya/join/${id}`, newMember);
       console.log(response.data);
       this.tasks.users.push(response.data);
     } catch (error) {
