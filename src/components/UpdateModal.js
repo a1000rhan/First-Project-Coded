@@ -1,87 +1,84 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import dataStore from "../store/dataStore";
-
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const CreateModal = () => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+const UpdateModal = ({ list, closeModal, isOpen }) => {
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
 
-  const [isOpen, setIsOpen] = useState(false);
   const [money, setMoney] = useState({
-    title: "",
-    image: "",
-    amount: "",
-    limit: "",
-    startDate: "",
-    endDate: "",
+    _id: list._id,
+    title: list.title,
+    image: list.image,
+    amount: list.amount,
+    limit: list.limit,
+    startDate: list.startDate,
+    endDate: list.endDate,
   });
-  console.log(
-    "🚀 ~ file: CreateModal.js ~ line 13 ~ CreateModal ~ money",
-    money
-  );
 
   const handleChange = (event) => {
     setMoney({ ...money, [event.target.name]: event.target.value });
   };
-  const handleDate = (date) => {
-    setStartDate(date);
-    setEndDate(date);
-    setMoney({ ...money, startDate: startDate, endDate: endDate });
-  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    dataStore.createTask(money);
-    setMoney({
-      title: "",
-      image: "",
-      amount: "",
-      limit: "",
-      startDate: "",
-      endDate: "",
-    });
-    setIsOpen(false);
+    dataStore.updateTask(money);
+    console.log(money);
+    closeModal();
   };
 
   return (
     <div className="center-button">
-      <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
-      <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
+      <Modal centered show={isOpen} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Create New Jam3eia</Modal.Title>
+          <Modal.Title>Update Jam3eia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Label>Title</Form.Label>
-            <Form.Control name="title" type="text" onChange={handleChange} />
+            <Form.Control
+              name="title"
+              type="text"
+              value={money.title}
+              onChange={handleChange}
+            />
             <div>
               <Form.Label>Image</Form.Label>
-              <Form.Control name="image" type="text" onChange={handleChange} />
+              <Form.Control
+                name="image"
+                type="text"
+                value={money.image}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Form.Label>Amount</Form.Label>
-              <Form.Control name="amount" type="text" onChange={handleChange} />
+              <Form.Control
+                name="amount"
+                type="text"
+                value={money.amount}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Form.Label>Limit</Form.Label>
-              <Form.Control name="limit" type="text" onChange={handleChange} />
+              <Form.Control
+                name="limit"
+                type="text"
+                value={money.limit}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Form.Label>Start Date</Form.Label>
-              {/* <DatePicker
-                placeholderText="Select Start Date"
-                showTimeSelect
-                dateFormat="yyyy/mm/dd"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-              /> */}
               <DatePicker
                 placeholderText="Select Start Date"
                 showTimeSelect
                 dateFormat="Pp"
                 selected={startDate}
-                onChange={handleDate}
+                onChange={(date) => setStartDate(date)}
               />
             </div>
             <div>
@@ -92,14 +89,14 @@ const CreateModal = () => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={endDate}
-                onChange={handleDate}
+                onChange={(date) => setEndDate(date)}
               />
             </div>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleSubmit}>
-            Create New
+            Update
           </Button>
         </Modal.Footer>
       </Modal>
@@ -107,4 +104,4 @@ const CreateModal = () => {
   );
 };
 
-export default CreateModal;
+export default UpdateModal;

@@ -11,6 +11,7 @@ const Home = () => {
           <img
             src="https://images-ext-2.discordapp.net/external/mZpLjEp6LxdXGzJCFpbhc36bVCB6ZxnTL85H9S4rkmA/https/www.clipartkey.com/mpngs/m/4-40753_cartoon-money-clipart-money-bag-clipart-png.png"
             className="home-img"
+            alt="homePage"
           />
         </div>
       </Link>
