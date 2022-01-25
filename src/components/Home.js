@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "react-bootstrap/lib/Modal";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -13,6 +14,13 @@ const Home = () => {
           />
         </div>
       </Link>
+      <Footer />
+      {/* <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/list" element={<List />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes> */}
     </div>
   );
 };
