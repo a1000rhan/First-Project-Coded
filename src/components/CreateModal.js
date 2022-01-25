@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 const CreateModal = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+ 
 
   const [isOpen, setIsOpen] = useState(false);
   const [money, setMoney] = useState({
@@ -17,10 +18,6 @@ const CreateModal = () => {
     startDate: "",
     endDate: "",
   });
-  console.log(
-    "🚀 ~ file: CreateModal.js ~ line 13 ~ CreateModal ~ money",
-    money
-  );
 
   const handleChange = (event) => {
     setMoney({ ...money, [event.target.name]: event.target.value });
