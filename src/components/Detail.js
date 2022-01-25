@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import dataStore from "../store/dataStore";
-import { Row, Col, Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { slug } = useParams();
@@ -9,18 +10,45 @@ const Detail = () => {
   console.log(slug);
   return (
     <div>
+      <Link to="/list">
+        <Button className="back-btn">back</Button>
+      </Link>
       <div className="container-detail">
-        <h1 className="title-detail">{jam3ya.title}</h1>
-        <div className="pic-detail">
-          <img className="image-detail" src={jam3ya.image} />
+        <div className="box">
+          <h1 className="title-detail">{jam3ya.title}</h1>
+          <div className="pic-detail">
+            <img
+              className="image-detail"
+              src={jam3ya.image}
+              alt={jam3ya.slug}
+            />
+          </div>
+          <Card className="card-detail">
+            <table>
+              <tr>
+                <th>Amount:</th>
+                <td>{jam3ya.amount}</td>
+              </tr>
+
+              <tr>
+                <th>Limit:</th>
+                <td>{jam3ya.limit}</td>
+              </tr>
+              <tr>
+                <th>Created By:</th>
+                <td>{jam3ya.author.username}</td>
+              </tr>
+              <tr>
+                <th>Start Date:</th>
+                <td>{jam3ya.startDate}</td>
+              </tr>
+              <tr>
+                <th>End Date:</th>
+                <td>{jam3ya.endDate}</td>
+              </tr>
+            </table>
+          </Card>
         </div>
-        <Card>
-          <p>Amount: {jam3ya.amount}</p>
-          <p>Limit: {jam3ya.limit}</p>
-          <p>Created By: {jam3ya.author.username}</p>
-          <p>Start Date: {jam3ya.startDate}</p>
-          <p>End Date: {jam3ya.endDate}</p>
-        </Card>
       </div>
     </div>
   );

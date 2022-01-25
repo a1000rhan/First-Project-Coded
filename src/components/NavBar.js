@@ -1,16 +1,19 @@
+import { Button } from "react-bootstrap";
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../logo.png";
+import authstore from "../store/AuthStore";
 import SignInModal from "./SignInModal";
 import SignUpModal from "./SignUpModal";
+import { observer } from "mobx-react";
 
 const NavBar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark navbar">
-        <Link to="/">
+        <NavLink to="/">
           <img width="50px" src={logo} alt="logo" />
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,22 +27,31 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <Link to="/">
-              <li className="nav-item active">
-                <a className="nav-link">
+            <NavLink to="/">
+              <li className="nav-item ">
+                <p className="nav-link">
                   Home <span className="sr-only">(current)</span>
-                </a>
+                </p>
               </li>
-            </Link>
-            <Link to="/list">
+            </NavLink>
+            <NavLink to="/list">
               <li className="nav-item">
                 <a className="nav-link">List</a>
               </li>
-            </Link>
+            </NavLink>
           </ul>
           <div className="sign">
-            <SignInModal />
-            <SignUpModal />
+            <p className="text-light m-2">
+              Welocome, {authstore.user ? authstore.user.username : ""}
+            </p>
+            {authstore.user ? (
+              <Button>Log out</Button>
+            ) : (
+              <>
+                <SignInModal />
+                <SignUpModal />
+              </>
+            )}
           </div>
         </div>
       </nav>
@@ -47,4 +59,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default observer(NavBar);
