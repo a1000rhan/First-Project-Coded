@@ -14,6 +14,13 @@ const Home = () => {
           />
         </div>
       </Link>
+      {/* <Footer /> */}
+      {/* <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/list" element={<List />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes> */}
     </div>
   );
 };
