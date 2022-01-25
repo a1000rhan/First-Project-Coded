@@ -19,12 +19,17 @@ class AuthStore {
       this.setUser(resp.data.token);
     } catch (error) {}
   };
-  
+
   signUp = async (user) => {
     try {
       const resp = await api.post("/signup", user);
       this.setUser(resp.data.token);
     } catch (error) {}
+  };
+  signOut = () => {
+    delete api.defaults.headers.common.Authorization;
+    localStorage.removeItem("myToken");
+    this.user = null;
   };
 }
 

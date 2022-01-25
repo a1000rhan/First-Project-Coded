@@ -45,7 +45,7 @@ const NavBar = () => {
               Welocome, {authstore.user ? authstore.user.username : ""}
             </p>
             {authstore.user ? (
-              <Button>Log out</Button>
+              <Button onClick={authstore.signOut}>Log out</Button>
             ) : (
               <>
                 <SignInModal />
