@@ -5,7 +5,7 @@ import CreateModal from "./CreateModal";
 import { observer } from "mobx-react";
 
 const List = () => {
-  const showList = dataStore.tasks.map((list) => <Listitem list={list} />);
+  const showList = dataStore.jam3yas.map((list) => <Listitem list={list} />);
 
   return (
     <div>

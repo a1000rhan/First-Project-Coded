@@ -8,14 +8,13 @@ import { observer } from "mobx-react";
 
 const Detail = () => {
   const { slug } = useParams();
-  const jam3ya = dataStore.tasks.find((elem) => elem.slug === slug);
-  const [members, setMembers] = useState();
+  const jam3ya = dataStore.jam3yas.find((elem) => elem.slug === slug);
 
   const handleJoin = () => {
-    console.log(jam3ya.limit);
-    console.log(jam3ya.users.length);
-    setMembers(authstore.user);
-    dataStore.joinJam3ya(members, jam3ya._id);
+    // console.log(jam3ya.limit);
+    // console.log(jam3ya.users.length);
+
+    dataStore.joinJam3ya(jam3ya);
   };
   return (
     <div>
