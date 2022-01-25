@@ -51,6 +51,18 @@ class DataStore {
       alert("cannot update");
     }
   };
+  joinJam3ya = async (newMember) => {
+    try {
+      const response = await api.post(
+        `jam3ya/join/${newMember._id}`,
+        newMember
+      );
+      console.log(response.data);
+      this.tasks.users.push(response.data);
+    } catch (error) {
+      alert("sorrt u cannot join");
+    }
+  };
 }
 
 const dataStore = new DataStore();
