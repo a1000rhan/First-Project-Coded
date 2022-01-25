@@ -1,5 +1,4 @@
 import React from "react";
-import { Footer } from "react-bootstrap/lib/Modal";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -15,7 +14,7 @@ const Home = () => {
           />
         </div>
       </Link>
-      <Footer />
+      {/* <Footer /> */}
       {/* <Routes>
         <Route path="/" element={<Home />} />
 
