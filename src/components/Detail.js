@@ -3,13 +3,19 @@ import { useParams } from "react-router-dom";
 import dataStore from "../store/dataStore";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Jam3yaUsers from "./Jam3yaUsers";
+import authstore from "../store/AuthStore";
+import { observer } from "mobx-react";
 
 const Detail = () => {
   const { slug } = useParams();
-  const jam3ya = dataStore.tasks.find((elem) => elem.slug === slug);
-  const jmembers = jam3ya.users.map((juser) => <Jam3yaUsers juser={juser} />);
+  const jam3ya = dataStore.jam3yas.find((elem) => elem.slug === slug);
 
+  const handleJoin = () => {
+    // console.log(jam3ya.limit);
+    // console.log(jam3ya.users.length);
+
+    dataStore.joinJam3ya(jam3ya);
+  };
   return (
     <div>
       <Link to="/list">
