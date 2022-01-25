@@ -140,3 +140,10 @@
   padding-left: 16%;
   display: table;
 }
+
+.profile-image {
+  overflow: hidden;
+  object-fit: cover;
+  width: 40%;
+  height: 40%;
+}
