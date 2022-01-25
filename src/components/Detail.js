@@ -5,10 +5,12 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import authstore from "../store/AuthStore";
 import { observer } from "mobx-react";
+import Jam3yaUsers from "./Jam3yaUsers";
 
 const Detail = () => {
   const { slug } = useParams();
   const jam3ya = dataStore.jam3yas.find((elem) => elem.slug === slug);
+  const jmembers = jam3ya.users.map((juser) => <Jam3yaUsers juser={juser} />);
 
   const handleJoin = () => {
     // console.log(jam3ya.limit);
@@ -62,7 +64,7 @@ const Detail = () => {
 
               <tr>
                 <th>Members</th>
-                <td>{}</td>
+                <td>{jmembers}</td>
               </tr>
             </table>
           </Card>
