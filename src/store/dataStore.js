@@ -11,6 +11,10 @@ class DataStore {
     try {
       const response = await api.get("/jam3ya");
       this.tasks = response.data;
+      console.log(
+        "🚀 ~ file: dataStore.js ~ line 14 ~ DataStore ~ fetchTasks= ~ this.tasks",
+        this.tasks
+      );
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +36,7 @@ class DataStore {
       const tempTask = this.tasks.filter((task) => task._id !== id);
       this.tasks = tempTask;
     } catch (e) {
-      alert("cannot delete the room");
+      alert("cannot delete the ");
     }
   };
   updateTask = async (updatedTask) => {

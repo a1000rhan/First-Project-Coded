@@ -17,15 +17,30 @@ const CreateModal = () => {
     startDate: "",
     endDate: "",
   });
+  console.log(
+    "🚀 ~ file: CreateModal.js ~ line 13 ~ CreateModal ~ money",
+    money
+  );
 
   const handleChange = (event) => {
     setMoney({ ...money, [event.target.name]: event.target.value });
   };
-
+  const handleDate = (date) => {
+    setStartDate(date);
+    setEndDate(date);
+    setMoney({ ...money, startDate: startDate, endDate: endDate });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     dataStore.createTask(money);
-    setMoney({ startDate: startDate, endDate: endDate });
+    setMoney({
+      title: "",
+      image: "",
+      amount: "",
+      limit: "",
+      startDate: "",
+      endDate: "",
+    });
     setIsOpen(false);
   };
 
@@ -66,7 +81,7 @@ const CreateModal = () => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={handleDate}
               />
             </div>
             <div>
@@ -77,7 +92,7 @@ const CreateModal = () => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={endDate}
-                onChange={(date) => setEndDate(date)}
+                onChange={handleDate}
               />
             </div>
           </Form>
