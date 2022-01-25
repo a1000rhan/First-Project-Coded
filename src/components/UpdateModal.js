@@ -78,6 +78,7 @@ const UpdateModal = ({ list, closeModal, isOpen }) => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={startDate}
+                value={money.startDate}
                 onChange={(date) => setStartDate(date)}
               />
             </div>
@@ -89,6 +90,7 @@ const UpdateModal = ({ list, closeModal, isOpen }) => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={endDate}
+                value={money.endDate}
                 onChange={(date) => setEndDate(date)}
               />
             </div>

@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import dataStore from "../store/dataStore";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import authstore from "../store/AuthStore";
+import { observer } from "mobx-react";
 
 const Detail = () => {
   const { slug } = useParams();
-  const jam3ya = dataStore.tasks.find((elem) => elem.slug === slug);
+  const jam3ya = dataStore.jam3yas.find((elem) => elem.slug === slug);
 
-  console.log(slug);
+  const handleJoin = () => {
+    // console.log(jam3ya.limit);
+    // console.log(jam3ya.users.length);
+
+    dataStore.joinJam3ya(jam3ya);
+  };
   return (
     <div>
       <Link to="/list">
         <Button className="back-btn">back</Button>
       </Link>
+
+      <Button className="back-btn" onClick={handleJoin}>
+        Join to Jam3ya
+      </Button>
+
       <div className="container-detail">
         <div className="box">
           <h1 className="title-detail">{jam3ya.title}</h1>
@@ -60,4 +72,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default observer(Detail);

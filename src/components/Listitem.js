@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import dataStore from "../store/dataStore";

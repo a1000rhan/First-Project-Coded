@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 const CreateModal = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+ 
 
   const [isOpen, setIsOpen] = useState(false);
   const [money, setMoney] = useState({
@@ -17,22 +18,24 @@ const CreateModal = () => {
     startDate: "",
     endDate: "",
   });
-  console.log(
-    "🚀 ~ file: CreateModal.js ~ line 13 ~ CreateModal ~ money",
-    money
-  );
 
   const handleChange = (event) => {
     setMoney({ ...money, [event.target.name]: event.target.value });
   };
-  const handleDate = (date) => {
+  const handleStartDate = (date) => {
     setStartDate(date);
+    setMoney({ ...money, startDate: startDate });
+    console.log(date);
+  };
+  const handleEndDate = (date) => {
     setEndDate(date);
-    setMoney({ ...money, startDate: startDate, endDate: endDate });
+    setMoney({ ...money, endDate: endDate });
+    console.log(date);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     dataStore.createTask(money);
+
     setMoney({
       title: "",
       image: "",
@@ -81,7 +84,7 @@ const CreateModal = () => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={startDate}
-                onChange={handleDate}
+                onChange={handleStartDate}
               />
             </div>
             <div>
@@ -92,7 +95,7 @@ const CreateModal = () => {
                 showTimeSelect
                 dateFormat="Pp"
                 selected={endDate}
-                onChange={handleDate}
+                onChange={handleEndDate}
               />
             </div>
           </Form>

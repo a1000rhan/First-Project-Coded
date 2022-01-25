@@ -18,7 +18,17 @@ function result(num1, num2, oper) {
 }
 
 function Calculator() {
-  return <div></div>;
+  return;
+
+  <div className="calculator">
+    <h1> Use Calculator</h1>
+    <form>
+      <input type="text" id="result" readOnly />
+      <input type="text" id="num" placeholder="enter a number" />
+      <button>Add</button>
+      <button>Clear</button>
+    </form>
+  </div>;
 }
 
 export default Calculator;

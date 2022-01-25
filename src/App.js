@@ -15,6 +15,9 @@ function App() {
         <Route path="list/:slug" element={<Detail />} />
         <Route path="/list" element={<List />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/twitter" element={<Footer />} />
+        <Route path="/instagram" element={<Footer />} />
+        <Route path="/facebook" element={<Footer />} />
       </Routes>
     </div>
   );

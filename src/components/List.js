@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import dataStore from "../store/dataStore";
 import Listitem from "./Listitem";
 import CreateModal from "./CreateModal";
@@ -6,12 +6,14 @@ import { observer } from "mobx-react";
 import SearchBar from "./SearchBar";
 
 const List = () => {
-  const showList = dataStore.tasks.map((list) => <Listitem list={list} />);
-  const s = () => {
-    const l = amount.amount.filter((s) => <SearchBar s={s} />);
-  };
+  const [query, setQuery] = useState("");
+  const showList = dataStore.jam3yas
+    .filer((list) => list.amount.include(query))
+    .map((list) => <Listitem list={list} />);
+
   return (
     <div>
+      <SearchBar setQuery={setQuery} />
       <div className="create-btn">
         <CreateModal />
       </div>
