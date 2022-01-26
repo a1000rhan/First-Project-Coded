@@ -18,8 +18,8 @@ const List = () => {
     );
   }
   const showList = dataStore.jam3yas
-    .filter((list) => list.amount >= query)
-
+    .filter((jam3ya) => jam3ya.amount <= parseInt(query))
+    .filter((jam3ya) => jam3ya.startDate <= query)
     .map((list) => <Listitem list={list} />);
 
   if (!showList) {
