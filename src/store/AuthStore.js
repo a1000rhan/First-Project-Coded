@@ -43,7 +43,17 @@ class AuthStore {
     localStorage.removeItem("myToken");
     this.user = null;
   };
+  updateUser = async (user) =>{
+    try{
+      const resp = await api.post("/update", user);
+      this.user=resp.data;
+    }
+    catch(error){
+      console.log(error);
+    }
+  };
 }
+
 
 const authstore = new AuthStore();
 authstore.checkForToken();
