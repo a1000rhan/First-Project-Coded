@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import authstore from "../store/AuthStore";
 import { observer } from "mobx-react";
 import { Card } from 'react-bootstrap';
@@ -12,15 +12,16 @@ function UserProfile() {
     <td>{e.amount}</td>
     </table>));
    console.log(userJam3ia);
-  return <div>
+  return ( 
+  <div>
       <div className="container-detail">
         <div className="box">
-        <img
-              className="profile-image"
-              src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png"
-              alt="user profile"
-            />
-            <Card className="card-detail">
+          <img
+            className="profile-image"
+            src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png"
+            alt="user profile"
+          />
+          <Card className="card-detail">
             <table>
               <tr>
                 <th>Username:</th>
@@ -28,16 +29,16 @@ function UserProfile() {
               </tr>
               <tr>
                 <th>Email:</th>
-                <td>{authstore.user ?  authstore.user.email : ""}</td>
+                <td>{authstore.user ? authstore.user.email : ""}</td>
               </tr>
               <th>Jam3iat:</th>
               <td>{myJam3ya}</td>
               </table>
               </Card>
         </div>
-        
-        </div>
-  </div>;
-}
+      </div>
+    </div>
+  );
+    }
 
 export default observer(UserProfile);

@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import dataStore from "../store/dataStore";
 
 import DatePicker from "react-datepicker";
+import authstore from "../store/AuthStore";
+import { observer } from "mobx-react";
 
 const CreateModal = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
- 
 
   const [isOpen, setIsOpen] = useState(false);
   const [money, setMoney] = useState({
@@ -49,7 +50,13 @@ const CreateModal = () => {
 
   return (
     <div className="center-button">
-      <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
+      {authstore.user ? (
+        <>
+          <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
+        </>
+      ) : (
+        ""
+      )}
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Create New Jam3eia</Modal.Title>
@@ -110,4 +117,4 @@ const CreateModal = () => {
   );
 };
 
-export default CreateModal;
+export default observer(CreateModal);

@@ -4,6 +4,7 @@ import api from "./api";
 
 class AuthStore {
   user = null;
+
   constructor() {
     makeAutoObservable(this, {});
   }
@@ -12,7 +13,18 @@ class AuthStore {
     api.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
   };
-
+  checkForToken = () => {
+    const token = localStorage.getItem("myToken");
+    if (token) {
+      const currentTime = Date.now();
+      const user = decode(token);
+      if (user.exp >= currentTime) {
+        this.setUser(token);
+      } else {
+        this.signOut();
+      }
+    }
+  };
   signIn = async (user) => {
     try {
       const resp = await api.post("/signin", user);
@@ -34,4 +46,5 @@ class AuthStore {
 }
 
 const authstore = new AuthStore();
+authstore.checkForToken();
 export default authstore;

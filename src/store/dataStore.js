@@ -3,6 +3,7 @@ import api from "./api";
 
 class DataStore {
   jam3yas = [];
+  isLoading = true;
 
   constructor() {
     makeAutoObservable(this, {});
@@ -11,10 +12,7 @@ class DataStore {
     try {
       const response = await api.get("/jam3ya");
       this.jam3yas = response.data;
-      console.log(
-        "🚀 ~ file: dataStore.js ~ line 14 ~ DataStore ~ fetchTasks= ~ this.tasks",
-        this.jam3yas
-      );
+      this.isLoading = false;
     } catch (error) {
       console.log(error);
     }
@@ -56,10 +54,26 @@ class DataStore {
 
     try {
       const response = await api.post(`jam3ya/join/${jam3ya._id}`);
-      jam3ya.users.push(response.data);
+
+      const tempJam3ya = this.jam3yas.map((jam3) =>
+        jam3._id === jam3ya._id ? response.data : jam3
+      );
+      this.jam3yas = tempJam3ya;
+
       console.log(response.data);
     } catch (error) {
       alert("sorrt u cannot join");
+    }
+  };
+  leaveJam3ya = async (jam3ya) => {
+    try {
+      const response = await api.post(`jam3ya/leave/${jam3ya._id}`);
+      const tempJam3ya = this.jam3yas.map((jam3) =>
+        jam3._id === jam3ya._id ? response.data : jam3
+      );
+      this.jam3yas = tempJam3ya;
+    } catch (error) {
+      console.log(error);
     }
   };
 }

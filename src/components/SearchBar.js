@@ -1,5 +1,4 @@
 import React from "react";
-// Styling
 
 const SearchBar = ({ setQuery }) => {
   const checkLength = (string) => {
@@ -8,11 +7,18 @@ const SearchBar = ({ setQuery }) => {
   };
 
   return (
-    <input
-      className="search-bar"
-      onChange={(event) => checkLength(event.target.value)}
-      placeholder="Search for a name"
-    />
+    <>
+      <input
+        className="search-bar"
+        onChange={(event) => checkLength(event.target.value)}
+        placeholder="Search for a name"
+      />
+      <input
+        className="date-bar"
+        onChange={(event) => checkLength(event.target.value)}
+        placeholder="yy-mm-dd"
+      />
+    </>
   );
 };
 
