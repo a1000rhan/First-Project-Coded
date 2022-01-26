@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import logo from "../logo.png";
 import authstore from "../store/AuthStore";
 import SignInModal from "./SignInModal";
@@ -42,7 +42,7 @@ const NavBar = () => {
           </ul>
           <div className="sign">
             <p className="text-light m-2">
-              Welocome, {authstore.user ? authstore.user.username : ""}
+              {authstore.user ? ` Welocome, ${authstore.user.username}` : ""}
             </p>
             {authstore.user ? (
               <Button onClick={authstore.signOut}>Log out</Button>

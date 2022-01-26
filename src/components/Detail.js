@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import dataStore from "../store/dataStore";
 import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authstore from "../store/AuthStore";
 import { observer } from "mobx-react";
 import Jam3yaUsers from "./Jam3yaUsers";
@@ -10,24 +10,51 @@ import Jam3yaUsers from "./Jam3yaUsers";
 const Detail = () => {
   const { slug } = useParams();
   const jam3ya = dataStore.jam3yas.find((elem) => elem.slug === slug);
+
+  const navigate = useNavigate();
+
   const jmembers = jam3ya.users.map((juser) => <Jam3yaUsers juser={juser} />);
-
+  const avaUser =
+    authstore.user &&
+    jam3ya.users.some((user) => user._id === authstore.user._id);
   const handleJoin = () => {
-    // console.log(jam3ya.limit);
-    // console.log(jam3ya.users.length);
+    console.log(jam3ya.users.username);
 
-    dataStore.joinJam3ya(jam3ya);
+    console.log();
+    if (jam3ya.users.length > jam3ya.limit) {
+      alert("the Jam3ya is full");
+    } else if (jam3ya.startDate > Date()) {
+      alert("the date is past");
+    } else if (avaUser == true) {
+      alert("u alredy here");
+    } else {
+      dataStore.joinJam3ya(jam3ya);
+    }
   };
+
+  const handleleave = () => {
+    dataStore.leaveJam3ya(jam3ya);
+    navigate("/list");
+  };
+  if (!jam3ya) {
+  }
   return (
     <div>
       <Link to="/list">
         <Button className="back-btn">back</Button>
       </Link>
-
-      <Button className="back-btn" onClick={handleJoin}>
-        Join to Jam3ya
-      </Button>
-
+      {authstore.user ? (
+        <>
+          <Button className="back-btn" onClick={handleJoin}>
+            Join to Jam3ya
+          </Button>
+          <Button className="back-btn" onClick={handleleave}>
+            Leave the Jam3ya
+          </Button>
+        </>
+      ) : (
+        ""
+      )}
       <div className="container-detail">
         <div className="box">
           <h1 className="title-detail">{jam3ya.title}</h1>
@@ -61,7 +88,6 @@ const Detail = () => {
                 <th>End Date:</th>
                 <td>{jam3ya.endDate}</td>
               </tr>
-
               <tr>
                 <th>Members</th>
                 <td>{jmembers}</td>
