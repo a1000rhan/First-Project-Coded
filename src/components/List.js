@@ -4,12 +4,15 @@ import Listitem from "./Listitem";
 import CreateModal from "./CreateModal";
 import { observer } from "mobx-react";
 import SearchBar from "./SearchBar";
+import DatePicker from "react-datepicker";
 
 import { Navigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
 const List = () => {
-  const [query, setQuery] = useState("");
+  const [slider, setSlider] = useState(0);
+  const [date, setDate] = useState(Date.now());
+
   if (dataStore.isLoading) {
     return (
       <div className="spinner">
@@ -18,17 +21,35 @@ const List = () => {
     );
   }
   const showList = dataStore.jam3yas
-    .filter((jam3ya) => jam3ya.amount <= parseInt(query))
-    .filter((jam3ya) => jam3ya.startDate <= query)
+    .filter((jam3ya) => jam3ya.amount > slider)
+    // .filter((jam3ya) => jam3ya.startDate < date)
+    // .filter((jam3ya) => jam3ya.startDate <= query)
     .map((list) => <Listitem list={list} />);
 
   if (!showList) {
-    return <Navigate to={"/404"} />;
+    return <Navigate to={"/"} />;
   }
   return (
     <div>
-      <SearchBar setQuery={setQuery} />
+      <div className="slider">
+        <h5>Amount &nbsp;</h5>
+        <input
+          type="range"
+          name="vol"
+          min="0"
+          max="10000"
+          onChange={(e) => setSlider(e.target.value)}
+        />
+        <p>{slider}</p>
+      </div>
+
       <div className="create-btn">
+        <DatePicker
+          placeholderText="Select End Date"
+          dateFormat="Pp"
+          selected={date}
+          onChange={(e) => setDate(e)}
+        />
         <CreateModal />
       </div>
       <div className="align-list">{showList}</div>

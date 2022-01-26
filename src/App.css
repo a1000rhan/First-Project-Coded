@@ -108,6 +108,11 @@
   justify-content: center;
   text-align: center;
 }
+.slider {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
 
 .box {
   background-color: rgba(8, 81, 113, 0.502);
