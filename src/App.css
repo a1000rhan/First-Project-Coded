@@ -168,3 +168,16 @@
   display: block;
   width: 40%;
 }
+.social-media {
+  background-color: rgb(96, 96, 104);
+  padding: 25px 50px;
+}
+a.twitter {
+  color: blue;
+}
+a.Facebook {
+  color: rgb(84, 124, 177);
+}
+a.instagram {
+  color: red;
+}
