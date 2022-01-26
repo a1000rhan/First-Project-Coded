@@ -6,12 +6,13 @@ import { observer } from "mobx-react";
 import SearchBar from "./SearchBar";
 
 const List = () => {
-  const [query, setQuery] = useState("");
+  const currentDate = Date();
+  const [query, setQuery] = useState();
+  // console.log("🚀 ~ file: List.js ~ line 11 ~ List ~ query", query);
   const showList = dataStore.jam3yas
-    .filter((list) => list.amount >= query)
-
+    .filter((jam3ya) => jam3ya.amount <= parseInt(query))
+    .filter((jam3ya) => jam3ya.startDate <= query)
     .map((list) => <Listitem list={list} />);
-
   return (
     <div>
       <SearchBar setQuery={setQuery} />

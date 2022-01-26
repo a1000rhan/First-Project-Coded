@@ -25,7 +25,7 @@ const Detail = () => {
       </Link>
 
       <Button className="back-btn" onClick={handleJoin}>
-        Join to Jam3ya
+        Join this Jam3ya
       </Button>
 
       <div className="container-detail">
