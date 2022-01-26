@@ -36,37 +36,4 @@ const Footer = () => {
   );
 };
 
-// import { Row } from "react-bootstrap";
-
-// <Row>
-//   <Heading>Social Media</Heading>
-//   <FooterLink href="#">
-//     <i className="facebook">
-//       <span style={{ marginRight: "10px" }}>Facebook</span>
-//     </i>
-//   </FooterLink>
-//   <FooterLink href="#">
-//     <i className="instagram">
-//       <span style={{ marginRight: "10px" }}>Instagram</span>
-//     </i>
-//   </FooterLink>
-//   <FooterLink href="#">
-//     <i className="twitter">
-//       <span style={{ marginRight: "10px" }}>Twitter</span>
-//     </i>
-//   </FooterLink>
-// </Row>;
-
-// import React from "react";
-// import { MDBIcon, MDBContainer, MDBBtn } from "mdbreact";
-
-// const SocialButtonsPage = () => {
-//   return (
-//     <MDBContainer>
-//       <MDBBtn social="fb">
-//         <MDBIcon fab icon="facebook-f" className="pr-1" /> Facebook
-//       </MDBBtn>
-//     </MDBContainer>
-//   );
-// };
 export default Footer;
