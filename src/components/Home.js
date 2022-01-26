@@ -15,7 +15,7 @@ const Home = () => {
           />
         </div>
       </Link>
-      {/* <Footer /> */}
+      <Footer />
       {/* <Routes>
         <Route path="/" element={<Home />} />
 
