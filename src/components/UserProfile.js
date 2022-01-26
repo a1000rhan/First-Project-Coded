@@ -3,7 +3,8 @@ import authstore from "../store/AuthStore";
 import { observer } from "mobx-react";
 import { Card } from 'react-bootstrap';
 import dataStore from '../store/dataStore';
-import { tab } from '@testing-library/user-event/dist/tab';
+import UpdateUserModal from "./UpdateUserModal";
+
 
 function UserProfile() {
     const userJam3ia = authstore.user && dataStore.jam3yas.filter(jam3ia => jam3ia.users.some(user => user._id === authstore.user._id))
@@ -14,6 +15,7 @@ function UserProfile() {
    console.log(userJam3ia);
   return ( 
   <div>
+    {authstore.user && <UpdateUserModal/>} 
       <div className="container-detail">
         <div className="box">
           <img

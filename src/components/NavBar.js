@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import React from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import logo from "../logo.png";
 import authstore from "../store/AuthStore";
 import SignInModal from "./SignInModal";
@@ -41,11 +41,15 @@ const NavBar = () => {
             </NavLink>
           </ul>
           <div className="sign">
-            <p className="text-light m-2">
+            <p className="text-light m-2 ">
               {authstore.user ? ` Welocome, ${authstore.user.username}` : ""}
             </p>
-            {authstore.user ? (
-              <Button onClick={authstore.signOut}>Log out</Button>
+            {authstore.user ? (<>
+              <Button className="create-btn" onClick={authstore.signOut}>Log out</Button>
+              <Link to="/profile">
+              <Button className="create-btn" >User Profile</Button>
+              </Link>
+              </>
             ) : (
               <>
                 <SignInModal />
