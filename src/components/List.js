@@ -8,7 +8,8 @@ import SearchBar from "./SearchBar";
 const List = () => {
   const [query, setQuery] = useState("");
   const showList = dataStore.jam3yas
-    .filer((list) => list.amount.include(query))
+    .filter((list) => list.amount >= query)
+
     .map((list) => <Listitem list={list} />);
 
   return (
@@ -18,7 +19,6 @@ const List = () => {
         <CreateModal />
       </div>
       <div className="align-list">{showList}</div>
-      <SearchBar />
     </div>
   );
 };

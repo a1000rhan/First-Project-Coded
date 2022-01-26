@@ -1,45 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+// Styling
 
-// const [searchInput, setSearchInput] = useState("");
-//{girl,mother}
-// const handleChange = (e) => {
-//   setSearchInput(e.target.value);
-//   console.log(searchInput);
-// };
-
-// jam3ya.amout.filter((j) => {
-//   return j.amout.match(searchInput);
-// });
-let dates = [];
-function jamount() {
-  const [amount, setamount] = useState();
-  const am = jam3yas.filer((a) => a.amount == amount);
-}
-
-function SearchBar(p) {
+const SearchBar = ({ setQuery }) => {
   const checkLength = (string) => {
-    if (string.length >= 2) p.setQuery(string);
-    else p.setQuery("");
+    if (string.length >= 2) setQuery(string);
+    else setQuery("");
   };
 
-  function Date() {
-    const [date, setDate] = useState();
-    const mydates = dates.filter((e) => e.date == dates);
-  }
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search for amount here"
-        onChange={(e) => checkLength(e.target.value)}
-      />
-      <input
-        className="dates"
-        onChange={(event) => checkLength(event.target.value)} //Cu
-        placeholder="dd/mm/yy"
-      />
-    </div>
+    <input
+      className="search-bar"
+      onChange={(event) => checkLength(event.target.value)}
+      placeholder="Search for a name"
+    />
   );
-}
+};
 
 export default SearchBar;
