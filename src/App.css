@@ -202,3 +202,17 @@ a.Facebook {
 a.instagram {
   color: red;
 }
+.about_us {
+  text-align: center;
+  font-size: larger;
+  padding: 20px;
+}
+.about-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+}
