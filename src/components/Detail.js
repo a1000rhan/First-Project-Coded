@@ -8,11 +8,8 @@ import { observer } from "mobx-react";
 import Jam3yaUsers from "./Jam3yaUsers";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-<<<<<<< HEAD
 import Payment from "./Payment";
-=======
 import moment from "moment";
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 
 const Detail = () => {
   const { slug } = useParams();
@@ -36,29 +33,6 @@ const Detail = () => {
       }).then(() => {
         return MySwal.fire({ icon: "error", text: "Jam3ya is Full" });
       });
-<<<<<<< HEAD
-    } else if (jam3ya.startDate >= Date()) {
-      MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire({
-          icon: " warning",
-          text: `Ooops...Jam3ya is passed ${jam3ya.title} Jam3ya`,
-        });
-      });
-    } else if (avaUser == true) {
-      MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire({
-          icon: "error",
-          text: `You already joined to ${jam3ya.title} Jam3ya`,
-        });
-=======
     } else if (jam3ya.startDate > moment().format()) {
       this.MySwal.fire({
         icon: "error",
@@ -68,11 +42,7 @@ const Detail = () => {
       MySwal.fire({
         icon: "error",
         text: `You already joined to ${jam3ya.title} Jam3ya`,
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
       });
-      <button type="submit" onClick={Payment} className="button">
-        PAY NOW
-      </button>;
     } else {
       dataStore.joinJam3ya(jam3ya);
     }
@@ -94,24 +64,10 @@ const Detail = () => {
   }
   return (
     <div>
-<<<<<<< HEAD
       <Link to="/list">
         <Button className="back-btn">back</Button>
       </Link>
-      {authstore.user ? (
-        <>
-          <Button className="back-btn" onClick={handleJoin}>
-            Join
-          </Button>
-          <Button className="back-btn" onClick={handleleave}>
-            Leave
-          </Button>
-        </>
-      ) : (
-        ""
-      )}
-=======
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
+      {authstore.user ? <></> : ""}
       <div className="container-detail">
         <div className="box">
           <h1 className="title-detail">{jam3ya.title}</h1>
@@ -123,7 +79,7 @@ const Detail = () => {
             />
           </div>
           <Card className="card-detail">
-            <table className="table">
+            <table className="table w-50 ">
               <tr>
                 <th>Amount:</th>
                 <td>{jam3ya.amount}</td>
@@ -151,9 +107,6 @@ const Detail = () => {
               </tr>
             </table>
             <div className="d-flex justify-content-end">
-              <Link to="/list">
-                <Button className="back-btn">back</Button>
-              </Link>
               {authstore.user && (
                 <>
                   <Button className="back-btn" onClick={handleJoin}>
@@ -162,6 +115,9 @@ const Detail = () => {
                   <Button className="back-btn" onClick={handleleave}>
                     Leave
                   </Button>
+                  <Link to="/payment">
+                    <Button className="back-btn">Pay</Button>
+                  </Link>
                 </>
               )}
             </div>

@@ -83,7 +83,6 @@
   margin-left: 4px;
 }
 .back-btn {
-<<<<<<< HEAD
   /* margin-left: 40px;
   margin-top: 20px; */
 
@@ -94,7 +93,6 @@
   cursor: pointer;
   width: 10%;
   display: block;
-=======
   margin: 20px;
   width: 100px;
 }
@@ -102,7 +100,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 }
 
 .title-list {
@@ -171,10 +168,13 @@
   height: 100%;
 }
 .card-detail {
+  padding-top: 3%;
   width: 100%;
   text-align: start;
-  padding-left: 16%;
-  display: table;
+  padding-left: 34%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
 }
 
 .profile-image {
@@ -207,11 +207,7 @@
   padding: 25px 50px;
 }
 a.social-media {
-<<<<<<< HEAD
-  margin: 0 1rem;
-=======
   margin: 5px;
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 }
 a.twitter {
   color: blue;
@@ -222,7 +218,6 @@ a.Facebook {
 a.instagram {
   color: red;
 }
-<<<<<<< HEAD
 .about_us {
   text-align: center;
   font-size: larger;
@@ -236,8 +231,7 @@ a.instagram {
   width: 200px;
   height: 200px;
   border: 1px solid #ddd;
-=======
-
+}
 .create-jam3ya-btn {
   border-radius: 50%;
   width: 50px;
@@ -245,5 +239,4 @@ a.instagram {
   margin-top: 25px;
   margin-left: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 }
