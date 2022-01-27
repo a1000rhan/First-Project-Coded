@@ -61,7 +61,7 @@
   height: 255px;
   border-radius: 10px;
   align-content: stretch;
-  border: 2px solid #1a374d;
+
   background-color: white;
   cursor: pointer;
   transition: 0.3s;
@@ -91,6 +91,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 .title-list {
   height: 45px;
   padding: 5px;
@@ -116,7 +117,7 @@
 .filter {
   display: flex;
   justify-content: center;
-  border: 2px solid #1a374d;
+  background-color: #d3dedc;
   width: 40%;
   border-radius: 10px;
 }
@@ -203,4 +204,15 @@ a.Facebook {
 }
 a.instagram {
   color: red;
+}
+
+.create-jam3ya-btn {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.create-btn span {
 }

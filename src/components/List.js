@@ -51,8 +51,8 @@ const List = () => {
               onChange={(e) => setDate(e)}
             />
           </div>
+          <CreateModal />
         </div>
-        <CreateModal />
       </div>
       <div className="container">
         <div className="align-list">{showList}</div>
