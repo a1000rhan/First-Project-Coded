@@ -1,9 +1,11 @@
+import { Navigate } from 'react-router-dom';
 import { makeAutoObservable } from "mobx";
 import decode from "jwt-decode";
 import api from "./api";
 
 class AuthStore {
   user = null;
+  
 
   constructor() {
     makeAutoObservable(this, {});
@@ -42,6 +44,8 @@ class AuthStore {
     delete api.defaults.headers.common.Authorization;
     localStorage.removeItem("myToken");
     this.user = null;
+    return <Navigate to='/'/>
+    
   };
   updateUser = async (user) =>{
     try{

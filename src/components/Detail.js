@@ -66,10 +66,10 @@ const Detail = () => {
       {authstore.user ? (
         <>
           <Button className="back-btn" onClick={handleJoin}>
-            Join to Jam3ya
+            Join 
           </Button>
           <Button className="back-btn" onClick={handleleave}>
-            Leave the Jam3ya
+            Leave 
           </Button>
         </>
       ) : (

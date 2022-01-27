@@ -12,7 +12,7 @@ const List = () => {
   const [slider, setSlider] = useState(0);
   const [date, setDate] = useState(null);
   const [filterDate, setFilterDate] = useState(null);
-
+  
 
   if (dataStore.isLoading) {
     return (
