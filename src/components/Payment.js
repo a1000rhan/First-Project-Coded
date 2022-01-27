@@ -1,15 +1,26 @@
 import React from "react";
-import { yupResolver } from "@hookform/resolver/yup";
-import { registerInterceptor } from "mobx/dist/internal";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
 
-const schema = yup.object().shape({
-  cardName: yup.string().min(16).required("full name"),
-  cardNamber: yup.string().min(16).matches("only numbers"),
-  expMonth: yup.number().max(12).min(1).typeError("only number"),
-  expYear: yup.number().max(2032).min(2022),
-});
+
 
 function Payment() {
+
+  const schema = yup.object().shape({
+    cardName: yup.string().min(16).required("full name"),
+    cardNamber: yup.string().min(16).matches("only numbers"),
+    expMonth: yup.number().max(12).min(1).typeError("only number"),
+    expYear: yup.number().max(2032).min(2022),
+  });
+
+  const {
+    register,
+    handlesubmit,
+    watch,
+    formState: {errors}}
+    = useForm ({resolver: yupResolver(schema)})
+  
   return (
     <div>
       <label for="cardName">cardName</label>
