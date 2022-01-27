@@ -1,10 +1,13 @@
 import { makeAutoObservable } from "mobx";
 import api from "./api";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 class DataStore {
   jam3yas = [];
   isLoading = true;
-
+  MySwal = withReactContent(Swal);
   constructor() {
     makeAutoObservable(this, {});
   }
@@ -14,7 +17,13 @@ class DataStore {
       this.jam3yas = response.data;
       this.isLoading = false;
     } catch (error) {
-      console.log(error);
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>Fatching is Faild</p>);
+      });
     }
   };
 
@@ -23,7 +32,13 @@ class DataStore {
       const response = await api.post("/jam3ya", newTask);
       this.jam3yas.push(response.data);
     } catch (error) {
-      console.log(error);
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>Creating Jam3ys is Faild</p>);
+      });
     }
   };
 
@@ -34,7 +49,13 @@ class DataStore {
       const tempTask = this.jam3yas.filter((task) => task._id !== id);
       this.jam3yas = tempTask;
     } catch (e) {
-      alert("cannot delete the ");
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>Deleting Jam3ya is Faild</p>);
+      });
     }
   };
   updateTask = async (updatedTask) => {
@@ -46,7 +67,13 @@ class DataStore {
 
       this.jam3yas = temptask;
     } catch (error) {
-      alert("cannot update");
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>Updating Jam3ya is faild</p>);
+      });
     }
   };
   joinJam3ya = async (jam3ya) => {
@@ -59,10 +86,14 @@ class DataStore {
         jam3._id === jam3ya._id ? response.data : jam3
       );
       this.jam3yas = tempJam3ya;
-
-      console.log(response.data);
     } catch (error) {
-      alert("sorrt u cannot join");
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>Sorry you Cannot Jion</p>);
+      });
     }
   };
   leaveJam3ya = async (jam3ya) => {
@@ -73,7 +104,13 @@ class DataStore {
       );
       this.jam3yas = tempJam3ya;
     } catch (error) {
-      console.log(error);
+      this.MySwal.fire({
+        didOpen: () => {
+          this.MySwal.clickConfirm();
+        },
+      }).then(() => {
+        return this.MySwal.fire(<p>You Cannot leave the Jam3ya</p>);
+      });
     }
   };
 }

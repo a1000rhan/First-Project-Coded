@@ -43,6 +43,7 @@ const List = () => {
             <p>{slider}</p>
           </div>
           <div className="date-picker">
+            <h5>Date &nbsp;</h5>
             <DatePicker
               placeholderText="Select End Date"
               dateFormat="Pp"
