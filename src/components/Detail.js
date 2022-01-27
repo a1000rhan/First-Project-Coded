@@ -41,11 +41,8 @@ const Detail = () => {
       });
     } else if (avaUser == true) {
       MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire(<p>You already joined to {jam3ya.title} Jam3ya</p>);
+        icon: "error",
+        text: `You already joined to ${jam3ya.title} Jam3ya`,
       });
     } else {
       dataStore.joinJam3ya(jam3ya);
@@ -53,28 +50,17 @@ const Detail = () => {
   };
 
   const handleleave = () => {
-    dataStore.leaveJam3ya(jam3ya);
-    navigate("/list");
+    if (jam3ya.endDate > Date()) {
+      alert("the date is passed");
+    } else {
+      dataStore.leaveJam3ya(jam3ya);
+      navigate("/list");
+    }
   };
   if (!jam3ya) {
   }
   return (
     <div>
-      <Link to="/list">
-        <Button className="back-btn">back</Button>
-      </Link>
-      {authstore.user ? (
-        <>
-          <Button className="back-btn" onClick={handleJoin}>
-            Join to Jam3ya
-          </Button>
-          <Button className="back-btn" onClick={handleleave}>
-            Leave the Jam3ya
-          </Button>
-        </>
-      ) : (
-        ""
-      )}
       <div className="container-detail">
         <div className="box">
           <h1 className="title-detail">{jam3ya.title}</h1>
@@ -113,6 +99,21 @@ const Detail = () => {
                 <td>{jmembers}</td>
               </tr>
             </table>
+            <div className="d-flex justify-content-end">
+              <Link to="/list">
+                <Button className="back-btn">back</Button>
+              </Link>
+              {authstore.user && (
+                <>
+                  <Button className="back-btn" onClick={handleJoin}>
+                    Join
+                  </Button>
+                  <Button className="back-btn" onClick={handleleave}>
+                    Leave
+                  </Button>
+                </>
+              )}
+            </div>
           </Card>
         </div>
       </div>

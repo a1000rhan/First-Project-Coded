@@ -42,7 +42,6 @@
   text-align: center;
   margin: 10px;
 }
-
 .align-list {
   display: flex;
   flex-wrap: wrap;
@@ -82,8 +81,8 @@
   margin-left: 4px;
 }
 .back-btn {
-  margin-left: 40px;
-  margin-top: 20px;
+  margin: 20px;
+  width: 100px;
 }
 .theimage {
   width: 100%;
@@ -187,8 +186,12 @@
   height: 500px;
 }
 .social-media {
-  background-color: rgb(96, 96, 104);
+  background-color: #1a374d;
+  color: white;
   padding: 25px 50px;
+}
+a.social-media {
+  margin: 0 1rem;
 }
 a.twitter {
   color: blue;

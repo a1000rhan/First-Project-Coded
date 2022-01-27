@@ -109,7 +109,7 @@ class DataStore {
           this.MySwal.clickConfirm();
         },
       }).then(() => {
-        return this.MySwal.fire(<p>You Cannot leave the Jam3ya</p>);
+        return this.MySwal.fire(<p></p>);
       });
     }
   };
