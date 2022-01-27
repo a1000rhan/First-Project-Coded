@@ -54,7 +54,9 @@ const List = () => {
         </div>
         <CreateModal />
       </div>
-      <div className="align-list">{showList}</div>
+      <div className="container">
+        <div className="align-list">{showList}</div>
+      </div>
     </div>
   );
 };

@@ -18,11 +18,8 @@ class DataStore {
       this.isLoading = false;
     } catch (error) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p>Fatching is Faild</p>);
+        icon: "error",
+        text: "You cannot join to this Jam3ya",
       });
     }
   };
@@ -33,11 +30,8 @@ class DataStore {
       this.jam3yas.push(response.data);
     } catch (error) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p>Creating Jam3ys is Faild</p>);
+        icon: "error",
+        text: "You create join to this Jam3ya",
       });
     }
   };
@@ -50,11 +44,8 @@ class DataStore {
       this.jam3yas = tempTask;
     } catch (e) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p>Deleting Jam3ya is Faild</p>);
+        icon: "error",
+        text: "You cannot delete  this Jam3ya",
       });
     }
   };
@@ -68,11 +59,8 @@ class DataStore {
       this.jam3yas = temptask;
     } catch (error) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p>Updating Jam3ya is faild</p>);
+        icon: "error",
+        text: "You cannot update this Jam3ya",
       });
     }
   };
@@ -88,11 +76,8 @@ class DataStore {
       this.jam3yas = tempJam3ya;
     } catch (error) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p>Sorry you Cannot Jion</p>);
+        icon: "error",
+        text: "You cannot join to this Jam3ya",
       });
     }
   };
@@ -105,11 +90,8 @@ class DataStore {
       this.jam3yas = tempJam3ya;
     } catch (error) {
       this.MySwal.fire({
-        didOpen: () => {
-          this.MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return this.MySwal.fire(<p></p>);
+        icon: "error",
+        text: "You cannot leave this Jam3ya",
       });
     }
   };
