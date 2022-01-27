@@ -71,10 +71,12 @@ const List = () => {
               onChange={handleDate}
             />
           </div>
+          <CreateModal />
         </div>
-        <CreateModal />
       </div>
-      <div className="align-list">{showList}</div>
+      <div className="container">
+        <div className="align-list">{showList}</div>
+      </div>
     </div>
   );
 };

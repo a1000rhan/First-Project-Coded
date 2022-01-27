@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; //bb
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -31,6 +31,7 @@ const Footer = () => {
       >
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
+      <p>Copy right © 2022 AjyalTech</p>
     </div>
   );
 };

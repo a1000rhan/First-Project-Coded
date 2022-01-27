@@ -8,6 +8,7 @@ import { observer } from "mobx-react";
 import Jam3yaUsers from "./Jam3yaUsers";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import moment from "moment";
 
 const Detail = () => {
   const { slug } = useParams();
@@ -31,21 +32,15 @@ const Detail = () => {
       }).then(() => {
         return MySwal.fire(<p> {jam3ya.title} Jam3ya is Full</p>);
       });
-    } else if (jam3ya.startDate >= Date()) {
-      MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire(<p> The Date of {jam3ya.title} Jam3ya is passed</p>);
+    } else if (jam3ya.startDate > moment().format()) {
+      this.MySwal.fire({
+        icon: "error",
+        text: `The Date of ${jam3ya.title} Jam3ya is passed`,
       });
     } else if (avaUser == true) {
       MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire(<p>You already joined to {jam3ya.title} Jam3ya</p>);
+        icon: "error",
+        text: `You already joined to ${jam3ya.title} Jam3ya`,
       });
     } else {
       dataStore.joinJam3ya(jam3ya);
@@ -53,28 +48,21 @@ const Detail = () => {
   };
 
   const handleleave = () => {
-    dataStore.leaveJam3ya(jam3ya);
-    navigate("/list");
+    if (jam3ya.endDate < moment().format()) {
+      MySwal.fire({
+        icon: "warning",
+        text: "the Jam3ya already Started",
+      });
+    } else {
+      dataStore.leaveJam3ya(jam3ya);
+
+      navigate("/list");
+    }
   };
   if (!jam3ya) {
   }
   return (
     <div>
-      <Link to="/list">
-        <Button className="back-btn">back</Button>
-      </Link>
-      {authstore.user ? (
-        <>
-          <Button className="back-btn" onClick={handleJoin}>
-            Join to Jam3ya
-          </Button>
-          <Button className="back-btn" onClick={handleleave}>
-            Leave the Jam3ya
-          </Button>
-        </>
-      ) : (
-        ""
-      )}
       <div className="container-detail">
         <div className="box">
           <h1 className="title-detail">{jam3ya.title}</h1>
@@ -113,6 +101,21 @@ const Detail = () => {
                 <td>{jmembers}</td>
               </tr>
             </table>
+            <div className="d-flex justify-content-end">
+              <Link to="/list">
+                <Button className="back-btn">back</Button>
+              </Link>
+              {authstore.user && (
+                <>
+                  <Button className="back-btn" onClick={handleJoin}>
+                    Join
+                  </Button>
+                  <Button className="back-btn" onClick={handleleave}>
+                    Leave
+                  </Button>
+                </>
+              )}
+            </div>
           </Card>
         </div>
       </div>

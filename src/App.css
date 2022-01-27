@@ -42,16 +42,17 @@
   text-align: center;
   margin: 10px;
 }
-
 .align-list {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  background-color: #d3dedc;
   text-align: start;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .conatiner-list {
-  margin: 20px;
+  margin: 45px;
 }
 
 .card-list {
@@ -60,7 +61,7 @@
   height: 255px;
   border-radius: 10px;
   align-content: stretch;
-  border: 2px solid #1a374d;
+
   background-color: white;
   cursor: pointer;
   transition: 0.3s;
@@ -82,14 +83,15 @@
   margin-left: 4px;
 }
 .back-btn {
-  margin-left: 40px;
-  margin-top: 20px;
+  margin: 20px;
+  width: 100px;
 }
 .theimage {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .title-list {
   height: 45px;
   padding: 5px;
@@ -115,8 +117,8 @@
 .filter {
   display: flex;
   justify-content: center;
-  border: 2px solid #1a374d;
-  width: 50%;
+  background-color: #d3dedc;
+  width: 40%;
   border-radius: 10px;
 }
 .date-picker {
@@ -187,8 +189,12 @@
   height: 500px;
 }
 .social-media {
-  background-color: rgb(96, 96, 104);
+  background-color: #1a374d;
+  color: white;
   padding: 25px 50px;
+}
+a.social-media {
+  margin: 5px;
 }
 a.twitter {
   color: blue;
@@ -198,4 +204,15 @@ a.Facebook {
 }
 a.instagram {
   color: red;
+}
+
+.create-jam3ya-btn {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.create-btn span {
 }

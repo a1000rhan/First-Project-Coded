@@ -3,10 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 
-
-
 function Payment() {
-
   const schema = yup.object().shape({
     cardName: yup.string().min(16).required("full name"),
     cardNamber: yup.string().min(16).matches("only numbers"),
@@ -18,9 +15,9 @@ function Payment() {
     register,
     handlesubmit,
     watch,
-    formState: {errors}}
-    = useForm ({resolver: yupResolver(schema)})
-  
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
   return (
     <div>
       <label for="cardName">cardName</label>

@@ -20,12 +20,12 @@ function Listitem({ list }) {
   return (
     <div className="conatiner-list">
       <div className="card-list">
-        <div className="image-list">
-          <Link to={`/list/${list.slug}`}>
+        <Link to={`/list/${list.slug}`}>
+          <div className="image-list">
             <img className="theimage" src={list.image} alt={list.slug} />
-          </Link>
-        </div>
-        <p className="title-list">{list.title}</p>
+          </div>
+          <p className="title-list">{list.title}</p>
+        </Link>
         <div>
           {authstore.user ? (
             <>
