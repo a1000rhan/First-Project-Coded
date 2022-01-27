@@ -212,7 +212,5 @@ a.instagram {
   height: 50px;
   margin-top: 25px;
   margin-left: 20px;
-}
-
-.create-btn span {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
