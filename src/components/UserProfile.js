@@ -11,18 +11,11 @@ function UserProfile() {
     dataStore.jam3yas.filter((jam3ia) =>
       jam3ia.users.some((user) => user._id === authstore.user._id)
     );
-  const myJam3ya =
-    authstore.user &&
-    userJam3ia.map((e) => (
-      <div className="w-50">
-        <table class="table ">
-          <thead>
-            <th>title:&nbsp;&nbsp;{e.title}:</th>
-            <td className="p-1">Amount:&nbsp;&nbsp;&nbsp;&nbsp;{e.amount}</td>
-          </thead>
-        </table>
-      </div>
-    ));
+
+  const myJam3yaTitle =
+    authstore.user && userJam3ia.map((e) => <p>{e.title}</p>);
+  const myJam3yaAmount =
+    authstore.user && userJam3ia.map((e) => <p>{e.amount}</p>);
   console.log(userJam3ia);
   return (
     <div>
@@ -34,21 +27,23 @@ function UserProfile() {
             src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png"
             alt="user profile"
           />
-          <Card className="card-detail w-75 ">
-            <table class="table">
-              <tr>
+          <Card className="card-detail w-75 text-start ">
+            <table className="table table-sm">
+              <tr className="d-flex">
                 <th>Username:</th>
                 <td>{authstore.user ? authstore.user.username : ""}</td>
               </tr>
-              <tr>
+              <tr className="d-flex">
                 <th>Email:</th>
                 <td>{authstore.user ? authstore.user.email : ""}</td>
               </tr>
-              <tr></tr>
 
-              <th>Jam3iat:</th>
-              <tbody>
-                <td>{myJam3ya}</td>
+              <tbody className="d-flex">
+                <th>Jam3iat:</th>
+                <th>Title:</th>
+                <td>{myJam3yaTitle}</td>
+                <th>Amount:</th>
+                <td>{myJam3yaAmount}</td>
               </tbody>
             </table>
           </Card>
