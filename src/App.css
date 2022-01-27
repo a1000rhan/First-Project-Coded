@@ -93,6 +93,15 @@
   width: 10%;
   display: block;
 }
+.pay-btn {
+  background-color: rgb(128, 128, 133);
+  border: 1px solid rgb(61, 61, 119);
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  width: 10%;
+  display: block;
+}
 .title-list {
   height: 45px;
   padding: 5px;
@@ -219,4 +228,33 @@ a.instagram {
   width: 200px;
   height: 200px;
   border: 1px solid #ddd;
+}
+.pay {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.credit-card {
+  width: 50px;
+  height: 50px;
+}
+.design {
+  background-color: rgb(172, 172, 172);
+  border: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  padding: 10px;
+  text-align: start;
+}
+.pay-now {
+  padding: 20px;
 }

@@ -76,7 +76,7 @@ const Detail = () => {
             Join
           </Button>
           <Link to="/payment">
-            <Button className="back-btn" type="submit" className="button">
+            <Button className="pay-btn" type="submit" className="button">
               PAY NOW
             </Button>
           </Link>

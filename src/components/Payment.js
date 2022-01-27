@@ -27,24 +27,35 @@ function Payment() {
   } = useForm({ resolver: yupResolver(schema) });
 
   return (
-    <div>
-      <label for="cardName">cardName</label>
-      <input type="text" placeholder="full name" {...register("card name")} />
-      <label for="cardNamer">cardNamber</label>
-      <input
-        type="text"
-        placeholder="full number"
-        {...register("card namber")}
+    <div className="pay">
+      <h2>PAY HERE</h2>
+      <img
+        src="https://th.bing.com/th/id/R.5d499c361b501b9071ac4ba45459dc27?rik=13HHBWscFaF5eg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-kTpRcnkbK34%2fUgzv4JtMEsI%2fAAAAAAAAAJY%2f3YnrgYzuLv4%2fs1600%2fvisa%2bmc%2blogo.jpg&ehk=sXg28jrPnHBwsSO99fEJKAluc30fP15Le5I0wg1ErYc%3d&risl=&pid=ImgRaw&r=0"
+        className="credit-card"
+        alt="credit"
       />
-      <label for="expYear">ExpYear</label>
-      <input type="text" placeholder="2022" {...register("expyear")} />
-      <label for="cvv">cvv</label>
-      <input
-        type="text"
-        placeholder="last three numbers at the back"
-        {...register("cvv")}
-      />
-      <button type="submit">PAY NOW</button>
+
+      <p></p>
+      <div className="design">
+        <label for="cardName">cardName: </label>
+        <input type="text" placeholder="full name" {...register("card name")} />
+
+        <label for="cardNamer">cardNamber: </label>
+        <input
+          type="text"
+          placeholder="full number"
+          {...register("card namber")}
+        />
+        <p></p>
+        <label for="expYear">ExpYear: </label>
+        <input type="text" placeholder="mm/yy" {...register("expyear")} />
+
+        <label for="cvv">cvv: </label>
+        <input type="text" placeholder="123" {...register("cvv")} />
+      </div>
+      <div className="pay-now">
+        <button type="submit">PAY NOW</button>
+      </div>
     </div>
   );
 }
