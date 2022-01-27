@@ -52,7 +52,9 @@ const CreateModal = () => {
     <div className="center-button">
       {authstore.user ? (
         <>
-          <Button onClick={() => setIsOpen(true)}>Create New Jam3eia</Button>
+          <Button className="create-jam3ya-btn" onClick={() => setIsOpen(true)}>
+            <span className="fa fa-plus"></span>
+          </Button>
         </>
       ) : (
         ""

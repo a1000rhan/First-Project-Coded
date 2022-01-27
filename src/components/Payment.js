@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -9,6 +10,12 @@ import { useForm } from "react-hook-form";
 //   expMonth: yup.number().max(12).min(1).typeError("only number"),
 //   expYear: yup.number().max(2032).min(2022),
 // });
+=======
+import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+>>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 
 // function Payment() {
 function Payment() {

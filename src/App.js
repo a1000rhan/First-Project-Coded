@@ -7,7 +7,11 @@ import AboutUs from "./components/AboutUs";
 import Detail from "./components/Detail";
 import UserProfile from "./components/UserProfile";
 import NotFound from "./components/NotFound";
+<<<<<<< HEAD
 import Payment from "./components/Payment";
+=======
+import Payment from "./components/Payment"
+>>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
 
 function App() {
   return (

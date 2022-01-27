@@ -39,8 +39,8 @@ function UserProfile() {
               </tr>
 
               <tbody className="d-flex">
+                <th></th>
                 <th>Jam3iat:</th>
-                <th>Title:</th>
                 <td>{myJam3yaTitle}</td>
                 <th>Amount:</th>
                 <td>{myJam3yaAmount}</td>
