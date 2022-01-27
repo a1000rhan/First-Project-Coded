@@ -36,29 +36,6 @@ const Detail = () => {
       }).then(() => {
         return MySwal.fire({ icon: "error", text: "Jam3ya is Full" });
       });
-<<<<<<< HEAD
-    } else if (jam3ya.startDate >= Date()) {
-      MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire({
-          icon: " warning",
-          text: `Ooops...Jam3ya is passed ${jam3ya.title} Jam3ya`,
-        });
-      });
-    } else if (avaUser == true) {
-      MySwal.fire({
-        didOpen: () => {
-          MySwal.clickConfirm();
-        },
-      }).then(() => {
-        return MySwal.fire({
-          icon: "error",
-          text: `You already joined to ${jam3ya.title} Jam3ya`,
-        });
-=======
     } else if (jam3ya.startDate > moment().format()) {
       this.MySwal.fire({
         icon: "error",
@@ -68,7 +45,6 @@ const Detail = () => {
       MySwal.fire({
         icon: "error",
         text: `You already joined to ${jam3ya.title} Jam3ya`,
->>>>>>> 5f659cc7fae323df3a9f59e158053a8a477a1a03
       });
       <button type="submit" onClick={Payment} className="button">
         PAY NOW
