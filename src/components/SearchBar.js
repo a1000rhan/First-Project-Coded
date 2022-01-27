@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; //bb
 
 const SearchBar = ({ setQuery }) => {
   const checkLength = (string) => {
