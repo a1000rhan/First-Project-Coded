@@ -74,7 +74,7 @@ const Detail = () => {
             />
           </div>
           <Card className="card-detail">
-            <table className="table">
+            <table className="table w-50 ">
               <tr>
                 <th>Amount:</th>
                 <td>{jam3ya.amount}</td>

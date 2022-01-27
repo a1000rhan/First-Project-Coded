@@ -158,10 +158,13 @@
   height: 100%;
 }
 .card-detail {
+  padding-top: 3%;
   width: 100%;
   text-align: start;
-  padding-left: 16%;
-  display: table;
+  padding-left: 34%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
 }
 
 .profile-image {
