@@ -54,9 +54,6 @@ const Detail = () => {
           text: `You already joined to ${jam3ya.title} Jam3ya`,
         });
       });
-      <button type="submit" onClick={Payment} className="button">
-        PAY NOW
-      </button>;
     } else {
       dataStore.joinJam3ya(jam3ya);
     }
@@ -78,6 +75,11 @@ const Detail = () => {
           <Button className="back-btn" onClick={handleJoin}>
             Join
           </Button>
+          <Link to="/payment">
+            <Button className="back-btn" type="submit" className="button">
+              PAY NOW
+            </Button>
+          </Link>
           <Button className="back-btn" onClick={handleleave}>
             Leave
           </Button>
