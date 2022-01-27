@@ -7,6 +7,7 @@ import AboutUs from "./components/AboutUs";
 import Detail from "./components/Detail";
 import UserProfile from "./components/UserProfile";
 import NotFound from "./components/NotFound";
+import Payment from "./components/Payment";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/list" element={<List />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

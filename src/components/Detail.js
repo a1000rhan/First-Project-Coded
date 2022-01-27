@@ -8,6 +8,7 @@ import { observer } from "mobx-react";
 import Jam3yaUsers from "./Jam3yaUsers";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import Payment from "./Payment";
 
 const Detail = () => {
   const { slug } = useParams();
@@ -29,7 +30,7 @@ const Detail = () => {
           MySwal.clickConfirm();
         },
       }).then(() => {
-        return MySwal.fire(<p> {jam3ya.title} Jam3ya is Full</p>);
+        return MySwal.fire({ icon: "error", text: "Jam3ya is Full" });
       });
     } else if (jam3ya.startDate >= Date()) {
       MySwal.fire({
@@ -37,7 +38,10 @@ const Detail = () => {
           MySwal.clickConfirm();
         },
       }).then(() => {
-        return MySwal.fire(<p> The Date of {jam3ya.title} Jam3ya is passed</p>);
+        return MySwal.fire({
+          icon: " warning",
+          text: `Ooops...Jam3ya is passed ${jam3ya.title} Jam3ya`,
+        });
       });
     } else if (avaUser == true) {
       MySwal.fire({
@@ -45,8 +49,14 @@ const Detail = () => {
           MySwal.clickConfirm();
         },
       }).then(() => {
-        return MySwal.fire(<p>You already joined to {jam3ya.title} Jam3ya</p>);
+        return MySwal.fire({
+          icon: "error",
+          text: `You already joined to ${jam3ya.title} Jam3ya`,
+        });
       });
+      <button type="submit" onClick={Payment} className="button">
+        PAY NOW
+      </button>;
     } else {
       dataStore.joinJam3ya(jam3ya);
     }
