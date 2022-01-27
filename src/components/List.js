@@ -24,6 +24,7 @@ const List = () => {
   const showList = dataStore.jam3yas
     .filter((jam3ya) => {
       if(filterDate === null) return true ;
+      
 
      else return jam3ya.startDate > filterDate})
       
